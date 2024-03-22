@@ -5,11 +5,11 @@
 @section('content')
 <form method="POST" action="">
     @csrf
-    <div  class="mb-4">
+    <div class="mb-4">
         <label>商品名稱 :</label>
         <input text="text" name="productName" id="productName"/>
     </div>
-    <div  class="mb-4">
+    <div class="mb-4">
         <label>商品價格 :</label>
         <input text="text" name="productPrice" id="productPrice"/>
     </div>

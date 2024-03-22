@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,18 @@ Route::get('/addProduct', function () {
     return view('addProduct');
 });
 
-Route::get('/showProduct', function () {
+/*Route::get('/showProduct', function () {
     return view('showProduct');
-});
+});*/
+
+Route::get('/showProduct', function () {
+    return view('showProduct', [
+        'products' => Product::latest()->paginate()
+    ]);
+})->name('products.index');
+
+Route::get('/showProduct/{product}', function (Product $product) {
+    return view('showProduct', [
+        'product' => $product
+    ]);
+})->name('products.show');
